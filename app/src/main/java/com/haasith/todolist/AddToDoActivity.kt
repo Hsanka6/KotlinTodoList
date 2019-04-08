@@ -33,6 +33,7 @@ class AddToDoActivity : AppCompatActivity() {
             realm.copyToRealm(d)
             realm.commitTransaction()
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
 
 
