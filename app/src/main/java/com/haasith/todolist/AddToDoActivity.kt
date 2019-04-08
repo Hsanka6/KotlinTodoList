@@ -26,7 +26,7 @@ class AddToDoActivity : AppCompatActivity() {
         var editText = findViewById<EditText>(R.id.editText);
 
         button.setOnClickListener {
-            var d = Item()
+            var d = ToDoItem()
             d.important = checkBox.isChecked
             d.name = editText.text.toString()
             realm.beginTransaction()
