@@ -1,5 +1,6 @@
 package com.haasith.todolist
 
+import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
 import io.realm.Realm
+import io.realm.RealmObject
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,10 +19,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        val realm =  Realm.getDefaultInstance()
+
         fab.setOnClickListener {
             var addIntent = Intent(this, AddToDoActivity::class.java)
             startActivity(addIntent)
         }
+
+
+
+        val query = realm.where(Item::class.java)
+        var result = query.findAll()
+        for(r in result){
+            println(r.name)
+        }
+
+        println("NUM DOGS is ${result.size}")
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

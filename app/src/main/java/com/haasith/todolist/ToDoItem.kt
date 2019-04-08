@@ -1,6 +1,8 @@
 package com.haasith.todolist
 
-public class  ToDoItem{
+import io.realm.RealmObject
+
+open class  Item: RealmObject(){
     public var name = ""
-    public var age = 0
+    public var important = false
 }
