@@ -16,6 +16,7 @@ import io.realm.Realm
 import io.realm.RealmObject
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
             var addIntent = Intent(this, AddToDoActivity::class.java)
             startActivity(addIntent)
         }
+        recyclerButton.setOnClickListener {
+            startActivity(Intent(this,RecyclerActivity::class.java))
+        }
+
 
         listSetup()
     }

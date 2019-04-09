@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import io.realm.Realm
-import kotlinx.android.synthetic.main.activity_add_to_do.*
 
 class AddToDoActivity : AppCompatActivity() {
 
@@ -26,7 +25,7 @@ class AddToDoActivity : AppCompatActivity() {
         var editText = findViewById<EditText>(R.id.editText);
 
         button.setOnClickListener {
-            var d = ToDoItem()
+            var d = ToDoItem("name", false)
             d.important = checkBox.isChecked
             d.name = editText.text.toString()
             realm.beginTransaction()
